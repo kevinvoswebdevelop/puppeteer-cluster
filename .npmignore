@@ -4,6 +4,7 @@ data/
 .vscode/
 coverage/
 
+src/
 test/
 examples/
 
