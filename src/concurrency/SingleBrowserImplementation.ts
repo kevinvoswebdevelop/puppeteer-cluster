@@ -16,7 +16,8 @@ export default abstract class SingleBrowserImplementation extends ConcurrencyImp
     private openInstances: number = 0;
     private waitingForRepairResolvers: (() => void)[] = [];
 
-    public constructor(options: puppeteer.LaunchOptions, puppeteer: any) {
+    // tslint:disable-next-line:max-line-length
+    public constructor(options: puppeteer.PuppeteerNodeLaunchOptions, puppeteer: any) {
         super(options, puppeteer);
     }
 

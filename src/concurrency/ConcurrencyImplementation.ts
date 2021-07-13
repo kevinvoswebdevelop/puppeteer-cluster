@@ -1,5 +1,6 @@
 
-import { Page, LaunchOptions } from 'puppeteer';
+// tslint:disable-next-line:max-line-length
+import { Page, PuppeteerNodeLaunchOptions } from 'puppeteer';
 
 /**
  * ABSTRACT CLASS Needs to be implemented to manage one or more browsers via puppeteer instances
@@ -9,14 +10,15 @@ import { Page, LaunchOptions } from 'puppeteer';
  */
 export default abstract class ConcurrencyImplementation {
 
-    protected options: LaunchOptions;
+    protected options: PuppeteerNodeLaunchOptions;
     protected puppeteer: any;
 
     /**
      * @param options  Options that should be provided to puppeteer.launch
      * @param puppeteer  puppeteer object (like puppeteer or puppeteer-core)
      */
-    public constructor(options: LaunchOptions, puppeteer: any) {
+    // tslint:disable-next-line:max-line-length
+    public constructor(options: PuppeteerNodeLaunchOptions, puppeteer: any) {
         this.options = options;
         this.puppeteer = puppeteer;
     }
@@ -34,7 +36,8 @@ export default abstract class ConcurrencyImplementation {
     /**
      * Creates a worker and returns it
      */
-    public abstract async workerInstance(perBrowserOptions: LaunchOptions | undefined):
+    // tslint:disable-next-line:max-line-length
+    public abstract async workerInstance(perBrowserOptions: PuppeteerNodeLaunchOptions | undefined):
         Promise<WorkerInstance>;
 
 }
@@ -79,6 +82,6 @@ export interface ResourceData {
 }
 
 export type ConcurrencyImplementationClassType = new (
-    options: LaunchOptions,
+    options: PuppeteerNodeLaunchOptions,
     puppeteer: any,
 ) => ConcurrencyImplementation;
