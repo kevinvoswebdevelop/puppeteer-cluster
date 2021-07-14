@@ -60,7 +60,7 @@ export default class Worker<JobData, ReturnData> implements WorkerOptions {
 
         let jobInstance: JobInstance | null = null;
         let page: Page | null = null;
-        let options: PuppeteerNodeLaunchOptions | Record<any, any> | undefined;
+        let options: PuppeteerNodeLaunchOptions & Record<any, any> | undefined;
 
         let tries = 0;
 
