@@ -12,7 +12,7 @@ export default class Browser extends ConcurrencyImplementation {
     public async close() {}
 
     // tslint:disable-next-line:max-line-length
-    public async workerInstance(perBrowserOptions: puppeteer.PuppeteerNodeLaunchOptions | undefined):
+    public async workerInstance(perBrowserOptions: puppeteer.PuppeteerNodeLaunchOptions & Record<any, any> | undefined):
         Promise<WorkerInstance> {
 
         const options = perBrowserOptions || this.options;
