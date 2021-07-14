@@ -51,13 +51,13 @@ const DEFAULT_OPTIONS: ClusterOptions = {
     puppeteer: undefined,
 };
 
-export interface TaskFunctionArguments<JobData> {
+export interface TaskFunctionArguments<JobData, OptionsData = {}> {
     page: Page;
     data: JobData;
     worker: {
         id: number;
     };
-    options: PuppeteerNodeLaunchOptions | Record<any, any> | undefined;
+    options: PuppeteerNodeLaunchOptions | OptionsData | undefined;
 }
 
 export type TaskFunction<JobData, ReturnData> = (
