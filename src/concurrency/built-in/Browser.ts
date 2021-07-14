@@ -36,6 +36,7 @@ export default class Browser extends ConcurrencyImplementation {
                 return {
                     resources: {
                         page,
+                        options,
                     },
 
                     close: async () => {
