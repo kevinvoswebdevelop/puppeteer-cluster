@@ -25,12 +25,6 @@ export default class Browser extends ConcurrencyImplementation {
                 await timeoutExecute(BROWSER_TIMEOUT, (async () => {
                     context = await chrome.createIncognitoBrowserContext();
                     page = await context.newPage();
-                    if (options.authenticate?.username && options.authenticate?.password) {
-                        await page.authenticate({
-                            username: options.authenticate.username,
-                            password: options.authenticate.password,
-                        });
-                    }
                 })());
 
                 return {
