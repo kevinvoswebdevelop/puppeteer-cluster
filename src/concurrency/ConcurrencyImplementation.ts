@@ -37,7 +37,7 @@ export default abstract class ConcurrencyImplementation {
      * Creates a worker and returns it
      */
     // tslint:disable-next-line:max-line-length
-    public abstract async workerInstance(perBrowserOptions: PuppeteerNodeLaunchOptions & Record<any, any> | undefined):
+    public abstract async workerInstance(perBrowserOptions: PuppeteerNodeLaunchOptions | Record<any, any> | undefined):
         Promise<WorkerInstance>;
 
 }

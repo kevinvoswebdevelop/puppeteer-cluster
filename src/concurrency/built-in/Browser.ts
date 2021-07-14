@@ -12,7 +12,7 @@ export default class Browser extends ConcurrencyImplementation {
     public async close() {}
 
     // tslint:disable-next-line:max-line-length
-    public async workerInstance(perBrowserOptions: puppeteer.PuppeteerNodeLaunchOptions & Record<any, any> | undefined):
+    public async workerInstance(perBrowserOptions: puppeteer.PuppeteerNodeLaunchOptions | Record<any, any> | undefined):
         Promise<WorkerInstance> {
 
         const options = perBrowserOptions || this.options;
@@ -25,6 +25,12 @@ export default class Browser extends ConcurrencyImplementation {
                 await timeoutExecute(BROWSER_TIMEOUT, (async () => {
                     context = await chrome.createIncognitoBrowserContext();
                     page = await context.newPage();
+                    if (options.authenticate?.username && options.authenticate?.password) {
+                        await page.authenticate({
+                            username: options.authenticate.username,
+                            password: options.authenticate.password,
+                        });
+                    }
                 })());
 
                 return {

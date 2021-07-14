@@ -74,7 +74,7 @@ export default class Cluster<JobData = any, ReturnData = any> extends EventEmitt
     static CONCURRENCY_BROWSER = 3; // no cookie sharing and individual processes (uses contexts)
 
     private options: ClusterOptions;
-    private perBrowserOptions: PuppeteerNodeLaunchOptions[] & Record<any, any> | null = null;
+    private perBrowserOptions: PuppeteerNodeLaunchOptions[] | Record<any, any> | null = null;
     private workers: Worker<JobData, ReturnData>[] = [];
     private workersAvail: Worker<JobData, ReturnData>[] = [];
     private workersBusy: Worker<JobData, ReturnData>[] = [];
