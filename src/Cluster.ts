@@ -57,7 +57,7 @@ export interface TaskFunctionArguments<JobData, OptionsData = {}> {
     worker: {
         id: number;
     };
-    options: PuppeteerNodeLaunchOptions | OptionsData | undefined;
+    options: PuppeteerNodeLaunchOptions & OptionsData | undefined;
 }
 
 export type TaskFunction<JobData, ReturnData> = (
